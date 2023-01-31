@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Checkbox</title>
+    
+    <title>Somar Checkbox</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Selecione os atenuantes</h1>
-        <div>
-            <input type="checkbox" class="atenuante" id="primeiroAtenuante"><label for="segundoAtenuante">Primeiro Atenuante</label>
-            <br>
-            <br>
-            <input type="checkbox" class="atenuante" id="segundoAtenuante"><label for="segundoAtenuante">Segundo Atenuante</label>
-
-        </div>
-        <div>
-            <input type="text">
-        </div>
-    <script src="main.js"></script>
+    <form action="">
+        <input type="checkbox" name="valor1" id="atenuante1" value="4.5">a identificação de coautores ou partícipes, com a descrição de suas respectivas condutas e provas;<br/>
+        <input type="checkbox" name="valor1" id="atenuante2" value="4.5">outros  fatores  supervenientes  à  instauração  do  processo  que  porventura  forem  identificados  na  instrução  ou  no julgamento.<br/>
+        <br/>
+        <input type="text" name="resultado" id="result" value="0.00">
+    </form>
 </body>
+<script>
+     function somar() {
+         var result = $("input:checked");
+         var total = 0;
+
+         for (var i=0; i<result.length; i++)
+         {
+             total = total + parseFloat(result[i].value);
+         }
+         $("#result").val(total.toFixed(2));
+    }
+
+    somar();
+    $(":checkbox").click(somar);
+
+</script>
 </html>
